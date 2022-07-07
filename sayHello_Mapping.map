@@ -18,6 +18,7 @@
             <output path="$ComIbmMessageAssembly_sayHelloResponse/sayHelloResponse/greeting"/>
             <param name="string1" value="&quot;hello, &quot;"/>
             <param name="string2" value="$name"/>
+            <param name="string3" value="&quot; !.&quot;"/>
         </function>
     </mappingDeclaration>
 </mappingRoot>
