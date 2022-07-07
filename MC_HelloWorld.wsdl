@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="MC_HelloWorld" targetNamespace="http://MC_HelloWorld" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://MC_HelloWorld" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="MC_HelloWorldHttpBinding" originalBindingStyle="document"/>
+        <generatedXSD location="MC_HelloWorld_InlineSchema1.xsd"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  
+  <wsdl:types>
+    
+        <xsd:schema targetNamespace="http://MC_HelloWorld" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+      <xsd:include schemaLocation="MC_HelloWorld_InlineSchema1.xsd"/>
+    </xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="sayHelloRequestMsg">
+    <wsdl:part element="tns:sayHello" name="sayHelloParameters"/>
+  </wsdl:message>
+  <wsdl:message name="sayHelloResponseMsg">
+    <wsdl:part element="tns:sayHelloResponse" name="sayHelloResult"/>
+  </wsdl:message>
+  <wsdl:portType name="MC_HelloWorld">
+    <wsdl:operation name="sayHello">
+      <wsdl:input message="tns:sayHelloRequestMsg" name="sayHelloRequest"/>
+      <wsdl:output message="tns:sayHelloResponseMsg" name="sayHelloResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MC_HelloWorldHttpBinding" type="tns:MC_HelloWorld">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="sayHello">
+      <soap:operation soapAction="http://MC_HelloWorld/sayHello"/>
+      <wsdl:input name="sayHelloRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sayHelloResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    </wsdl:binding>
+  <wsdl:service name="MC_HelloWorldHttpService">
+    <wsdl:port binding="tns:MC_HelloWorldHttpBinding" name="MC_HelloWorldHttpPort">
+      <soap:address location="http://localhost:7800/MC_HelloWorld"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

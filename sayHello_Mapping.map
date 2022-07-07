@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <input path="/MC_HelloWorld_InlineSchema1.xsd"/>
+    <output path="/MC_HelloWorld_InlineSchema1.xsd"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://MC_HelloWorld"/>
+        <namespace kind="extension" prefix="fn" uri="http://www.w3.org/2005/xpath-functions"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="sayHello_Mapping">
+        <input namespace="http://MC_HelloWorld" path="mb:msg(sayHello,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_sayHello"/>
+        <output namespace="http://MC_HelloWorld" path="mb:msg(sayHelloResponse,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_sayHelloResponse"/>
+        <move>
+            <input path="$ComIbmMessageAssembly_sayHello/Properties"/>
+            <output path="$ComIbmMessageAssembly_sayHelloResponse/Properties"/>
+        </move>
+        <function ref="fn:concat">
+            <input path="$ComIbmMessageAssembly_sayHello/sayHello/name" var="name"/>
+            <output path="$ComIbmMessageAssembly_sayHelloResponse/sayHelloResponse/greeting"/>
+            <param name="string1" value="&quot;hello, &quot;"/>
+            <param name="string2" value="$name"/>
+        </function>
+    </mappingDeclaration>
+</mappingRoot>

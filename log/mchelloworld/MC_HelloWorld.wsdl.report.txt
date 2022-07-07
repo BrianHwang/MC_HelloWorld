@@ -1,0 +1,13 @@
+
+
+Importing file: C:\Development\WorkSpaces\IOP\ACE\MC_HelloWorld\MC_HelloWorld.wsdl
+
+The WSDL import will proceed with bindings MC_HelloWorldHttpBinding.
+Creating wsdl schema document for platform:/resource/MC_HelloWorld/MC_HelloWorld.wsdl.
+Parsing wsdl binding {http://MC_HelloWorld}MC_HelloWorldHttpBinding.
+Parsing wsdl binding input sayHello.
+Parsing wsdl binding output sayHello.
+Processing doc style for operation sayHello.
+Populating WSDL schema MC_HelloWorld.xsd.
+Creating file MC_HelloWorld.xsd in the workspace.
+Copying source WSDL MC_HelloWorld.wsdl to MC_HelloWorld.wsdl.
