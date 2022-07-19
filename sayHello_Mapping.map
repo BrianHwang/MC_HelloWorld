@@ -16,7 +16,7 @@
         <function ref="fn:concat">
             <input path="$ComIbmMessageAssembly_sayHello/sayHello/name" var="name"/>
             <output path="$ComIbmMessageAssembly_sayHelloResponse/sayHelloResponse/greeting"/>
-            <param name="string1" value="&quot; hello demo, &quot;"/>
+            <param name="string1" value="&quot; demo for integrartion sup, &quot;"/>
             <param name="string2" value="$name"/>
             <param name="string3" value="&quot; !.&quot;"/>
         </function>
